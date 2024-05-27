@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine, text
-import sqlalchemy.exc
+
 
 # Updated connection string with root user credentials
 db_connection_string = "mysql+pymysql://mutaikelvin:Kipkemboi@localhost/jobfinderweb?charset=utf8mb4"
