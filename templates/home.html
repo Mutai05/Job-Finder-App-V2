@@ -1,44 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  {% include 'bootstrap.html' %}
-  <title>JobFinder App</title>
-  <style>
-    #banner {
-      width: 100%
-      object-fit: cover;
-      margin-bottom: 16px;
-    }
-  </style>
-  
-</head>
-<body>
-  {% include 'nav.html' %}
-  <img class="img-fluid" src="/static/banner.jpg" id="banner">
-  <div class="container">
-    <h1 class="text-center mt-2 mb-2">{{company_name}} App</h1>
-    <p class="text-center">Hello there, Welcome to JobFinder App!</p>
-    
-    <h2 class="text-center mt-2 mb-4">About JobFinder App</h2>
-    <div class="row" style="margin-bottom:16px">
-      <div class="col-md-6">
-      <p>JobFinder, aims to simplify the job search process by connecting job seekers with opportunities that match their skills and aspirations. JobFinder is designed for job seekers looking for a streamlined and efficient way to find job listings, apply for jobs, and receive real-time notifications. JobFinder Web app is committed to providing a user-friendly platform for job seekers to discover their dream jobs. With a focus on user experience and efficiency, JobFinder Web app offers a seamless job search experience, helping individuals find employment opportunities that align with their career goals and aspirations. Our platform provides innovative features, personalized job recommendations, and real-time job alerts to ensure job seekers stay informed and connected in the competitive job market.
-</p>
+  <head>
+    {% include 'bootstrap.html' %}
+    <title>JobFinder App</title>
+  </head>
+  <body>
+    {% include 'nav.html' %}
+
+    <style>
+      #banner {
+        width: 100%
+        object-fit: cover;
+        margin-bottom: 16px;
+      }
+    </style>
+    <img class="img-fluid" src="/static/banner.jpg" id="banner" />
+    <div class="container">
+      <h1 class="text-center mt-2 mb-2">{{company_name}} App</h1>
+      <p class="text-center">Hello there, Welcome to JobFinder App!</p>
+
+      <h2 class="text-center mt-2 mb-4">About JobFinder App</h2>
+      <div class="row" style="margin-bottom: 16px">
+        <div class="col-md-6">
+          <p>
+            JobFinder, aims to simplify the job search process by connecting job seekers with opportunities
+            that match their skills and aspirations. JobFinder is designed for job seekers looking for a
+            streamlined and efficient way to find job listings, apply for jobs, and receive real-time
+            notifications. JobFinder Web app is committed to providing a user-friendly platform for job
+            seekers to discover their dream jobs. With a focus on user experience and efficiency, JobFinder
+            Web app offers a seamless job search experience, helping individuals find employment opportunities
+            that align with their career goals and aspirations. Our platform provides innovative features,
+            personalized job recommendations, and real-time job alerts to ensure job seekers stay informed and
+            connected in the competitive job market.
+          </p>
+        </div>
+        <div class="d-none d-md-block col-md-6">
+          <img src="/static/people-working.jpg" style="height: 320px; border-radius: 4px" />
+        </div>
       </div>
-      <div class="d-none d-md-block col-md-6">
-      <img src="/static/people-working.jpg" style="height:320px; border-radius:4px; ">
+
+      <h2 class="text-center mt-2 mb-4">Job Positions</h2>
+      <div class="mt-2 mb-4">{% for job in jobs %} {% include 'jobitem.html' %} {% endfor %}</div>
+      <div class="text-center">
+        <a
+          class="btn btn-primary btn-lg"
+          href="mailto:contact@jobfinderapp.com?subject=Job%20Enquiry&body=My%20name%3A%20%3CEnter%20your%20name%3E%0D%0A%0D%0APhone%20number%3A%20%3CEnter%20phone%20number%3E%0D%0A%0D%0ASubject%3A%20%3CEnter%20subject%3E%0D%0A%0D%0AMessage%3A%20%3CLeave%20a%20message%3E"
+          role="button"
+          >Contact Us</a
+        >
       </div>
     </div>
-    <h2 class="text-center mt-2 mb-4">Job Positions</h2>
-    <div class="mt-2 mb-4">
-      {% for job in jobs %}
-        {% include 'jobitem.html' %}
-      {% endfor %}
-    </div>
-    <div class="text-center">
-      <a class="btn btn-primary btn-lg" href="mailto:contact@jobfinderapp.com?subject=Job%20Enquiry&body=My%20name%3A%20%3CEnter%20your%20name%3E%0D%0A%0D%0APhone%20number%3A%20%3CEnter%20phone%20number%3E%0D%0A%0D%0ASubject%3A%20%3CEnter%20subject%3E%0D%0A%0D%0AMessage%3A%20%3CLeave%20a%20message%3E" role="button">Contact Us</a>
-    </div>
-  </div>
-  {% include 'footer.html' %}
-</body>
+    {% include 'footer.html' %}
+  </body>
 </html>

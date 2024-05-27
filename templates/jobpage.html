@@ -6,6 +6,7 @@
   </head>
   <body>
     {% include 'nav.html' %}
+
     <h3>Job Title</h3>
     <p>{{job.title}}</p>
     <h3>Salary</h3>
@@ -15,5 +16,7 @@
     <h3>Requirements</h3>
     <p>{{job.requirements}}</p>
     <div><b>Location:</b> {{job['location']}}</div>
+
+    {% include 'footer.html' %}
   </body>
 </html>
