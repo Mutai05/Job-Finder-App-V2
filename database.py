@@ -1,6 +1,5 @@
 from sqlalchemy import create_engine, text
 
-
 # Updated connection string with root user credentials
 db_connection_string = "mysql+pymysql://mutaikelvin:Kipkemboi@localhost/jobfinderweb?charset=utf8mb4"
 
@@ -30,3 +29,15 @@ def load_jobs_from_db():
         for row in result.mappings():
             jobs.append(dict(row))
         return jobs
+
+def load_job_from_db(id):
+    with engine.connect() as conn:
+        result = conn.execute(
+            text("SELECT * FROM jobs WHERE id = :val"),
+            {"val": id}
+        )
+        row = result.mappings().first()
+        if row is None:
+            return None
+        else:
+            return dict(row)
