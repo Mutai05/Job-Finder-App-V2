@@ -17,9 +17,9 @@ def list_jobs():
 def show_job(id):
     job = load_job_from_db(id)
     if job:
-        return jsonify(job)
+        return render_template('jobpage.html', job=job)
     else:
-        return jsonify({"error": "Job not found"}), 404
+        return "Job Not Found", 404
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
