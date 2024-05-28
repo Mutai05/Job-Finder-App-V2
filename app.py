@@ -27,10 +27,14 @@ def show_job(id):
 @app.route("/job/<int:id>/apply", methods=['post'])
 def apply_to_job(id):
     data = request.form
+    job = load_job_from_db(id)
     # store in the db
     # send an email
     # display acknowledgement
-    return jsonify(data)
+    return render_template('application-submitted.html',
+                           application=data,
+                           job=job)
+                         
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
