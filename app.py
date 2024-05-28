@@ -3,10 +3,13 @@ from database import load_jobs_from_db, load_job_from_db
 
 app = Flask(__name__)
 
+# Define the company name once
+COMPANY_NAME = 'JobFinder Website'
+
 @app.route("/")
 def home_page():
     jobs = load_jobs_from_db()
-    return render_template('home.html', jobs=jobs, company_name='JobFinder Website')
+    return render_template('home.html', jobs=jobs, company_name=COMPANY_NAME)
 
 @app.route("/api/jobs")
 def list_jobs():
@@ -17,7 +20,7 @@ def list_jobs():
 def show_job(id):
     job = load_job_from_db(id)
     if job:
-        return render_template('jobpage.html', job=job)
+        return render_template('jobpage.html', job=job, company_name=COMPANY_NAME)
     else:
         return "Job Not Found", 404
 
