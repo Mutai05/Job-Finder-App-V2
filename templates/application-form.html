@@ -1,5 +1,5 @@
 <h4>Application Form</h4>
-<form>
+<form action="/job/{{job['id']}}/apply" method="post">
   <div class="mb-2">
     <label>Full Name</label><br />
     <input type="text" name="full_name" placeholder="Mutai Kelvin" />
@@ -19,5 +19,5 @@
     />
   </div>
 
-  <input type="submit" name="submit" />
+  <input type="submit" />
 </form>
